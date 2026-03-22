@@ -12,8 +12,9 @@ MotorPH Payroll System (Excel-based Java implementation)
 | 2026-03-01 | Improve payroll staff menu flow | Done | Extra unnecessary submenu step | Simplified option flow for employee lookup | Faster user input path |
 | 2026-03-02 | Update attendance scope and time rules | Done | Need month coverage and cutoff logic | Added dynamic month handling and 8:00-17:00 policy with grace period and lunch deduction | Verified with sample employees |
 | 2026-03-02 | Update deduction basis | Done | Deductions previously not aligned with cutoff-combined requirement | Calculated monthly deductions from combined cutoff gross | Payroll values updated |
-| 2026-03-02 | Improve display readability and modularity | Done | Repeated print blocks in payroll output | Extracted helper print methods and cleaner display format | `displayPayroll()` simplified |
-| 2026-03-19 | Validate calculations with manual walkthrough | Done | Clarify decimal-hour interpretation | Converted hour fractions to hrs/min explanation and cross-checked sample days | Manual validation documented |
+| 2026-03-03 | Validate calculations with manual walkthrough | Done | Clarify decimal-hour interpretation | Converted hour fractions to hrs/min explanation and cross-checked sample days | Manual validation documented |
+| 2026-03-19 | Improve display readability and modularity | Done | Repeated print blocks in payroll output | Extracted helper print methods and cleaner display format | `displayPayroll()` simplified |
+| 2026-03-23 | Finalize repository submission setup | Done | Clone/run instructions could fail if libs are assumed in root and compiled artifacts are committed | Updated `README.md` classpath to `.;lib/*`, documented source-only submission, and added `.gitignore` for `*.class` | Repo now aligned for fresh clone + compile workflow |
 
 ## Current Risks / Notes
 - Excel source format changes (column order or sheet names) may break parsing.

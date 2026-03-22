@@ -6,7 +6,7 @@ Single-file Java payroll system that reads employee and attendance data from an 
 
 - `PayrollSystemExcel.java` (main program)
 - `MotorPH_Employee Data.xlsx` (source data)
-- Required library JARs:
+- `lib/` folder with required library JARs:
   - `poi-5.2.3.jar`
   - `poi-ooxml-5.2.3.jar`
   - `poi-ooxml-lite-5.2.3.jar`
@@ -21,25 +21,27 @@ Single-file Java payroll system that reads employee and attendance data from an 
 - Java JDK 21 (or compatible JDK)
 - PowerShell (for the commands below)
 
-If `javac`/`java` are not in PATH, use full JDK paths (example below uses Corretto):
-
-- `C:\Users\jedgb\.jdks\corretto-21.0.7\bin\javac`
-- `C:\Users\jedgb\.jdks\corretto-21.0.7\bin\java`
+If `javac`/`java` are not in PATH, use full JDK paths for your machine.
 
 ## Compile (PowerShell)
 
 ```powershell
-cd "c:\Users\jedgb\OneDrive\MotorPH Payroll System - New"
-$jars = (Get-ChildItem *.jar | ForEach-Object { $_.Name }) -join ";"
-& "C:\Users\jedgb\.jdks\corretto-21.0.7\bin\javac" -cp $jars PayrollSystemExcel.java
+cd <path-to-cloned-repo>
+javac -cp ".;lib/*" PayrollSystemExcel.java
 ```
 
 ## Run (PowerShell)
 
 ```powershell
-cd "c:\Users\jedgb\OneDrive\MotorPH Payroll System - New"
-$jars = ".;" + ((Get-ChildItem *.jar | ForEach-Object { $_.Name }) -join ";")
-& "C:\Users\jedgb\.jdks\corretto-21.0.7\bin\java" -cp $jars PayrollSystemExcel
+cd <path-to-cloned-repo>
+java -cp ".;lib/*" PayrollSystemExcel
+```
+
+If Java is not in PATH, replace `javac` and `java` with full paths, for example:
+
+```powershell
+& "<JDK_PATH>\bin\javac" -cp ".;lib/*" PayrollSystemExcel.java
+& "<JDK_PATH>\bin\java" -cp ".;lib/*" PayrollSystemExcel
 ```
 
 ## Login Credentials
@@ -51,6 +53,7 @@ $jars = ".;" + ((Get-ChildItem *.jar | ForEach-Object { $_.Name }) -join ";")
 ## Notes
 
 - The program reads data from `MotorPH_Employee Data.xlsx` in the same folder.
+- Compiled `.class` files are not required in the repository; they are generated when compiling.
 - If you see this warning:
   - `Log4j2 could not find a logging implementation...`
   it is non-fatal and does not stop the program.
@@ -62,5 +65,5 @@ This repository is runnable when it includes:
 
 1. `PayrollSystemExcel.java`
 2. `MotorPH_Employee Data.xlsx`
-3. all required `.jar` files
+3. all required `.jar` files inside `lib/`
 4. this `README.md`
